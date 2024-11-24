@@ -7,7 +7,7 @@ def extract_transactions_from_pdf(pdf_path):
     Filters out transactions where both Debit and Credit are zero.
     """
     doc = fitz.open(pdf_path)
-    transactions = []
+    transactions = [] 
     
     for page in doc:
         text = page.get_text("text")
@@ -89,10 +89,10 @@ file2 = "Search_20112024 - 2 Oct 2024.pdf"
 df1 = extract_transactions_from_pdf(file1)
 df2 = extract_transactions_from_pdf(file2)
 
-# Find unmatched transactions
+# To Find unmatched transactions
 unmatched_transactions = find_unmatched_transactions_by_date(df1, df2)
 
-# Save the result to an Excel file
+# Saving the result in an Excel file
 output_file = "Unmatched_Transactions_By_Date.xlsx"
 unmatched_transactions.to_excel(output_file, index=False)
 
